@@ -1,4 +1,4 @@
-# MeliCafe
+# MeliCafe (in progress)
 A website created for Eleni's coffee trucked named Meli Cafe!
 
 Stakeholder needs: 
