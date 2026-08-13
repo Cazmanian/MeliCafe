@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: auto;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -71,7 +71,7 @@ header {
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
+    background: rgba(248, 181, 80, 0.856);
     padding: 1rem 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -80,6 +80,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
 }
 
 .nav-links {
@@ -90,10 +91,19 @@ header {
 
 .nav-links a {
     color: #333;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
 }
+.nav-links a:hover {
+    color: white;
+    background: #054EDB;
+
+}
+
 
 .menu-toggle {
     font-size: 2rem;
@@ -109,29 +119,29 @@ header {
     text-align: center;
     align-items: center;
     position: relative;
+    min-height: 50vh;
 }
 
 .hero-image {
-    border-radius: 12px;
-    height: 75%;
-    width: 90%;
-    margin: auto;
+    transform: translateY(-90px);
     display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
 }
 
 .hero-button {
     position: absolute;
-
     margin-top: 2rem;
-    padding: 1rem  2.5rem;
-    top: 75%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    padding: 1.25rem  3.5rem;
+    text-align: center;
     background: #E69233;
     color: white;
 
-    border-radius: 50px;
+    border-radius: 40px;
 
     font-weight: bold;
 
@@ -260,16 +270,84 @@ blockquote {
 /* Footer Styles */
 
 footer {
-    background: #0e3f9bbd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: 1.5rem 1.25rem;
+    background: linear-gradient(135deg, #054EDB 0%, #0b63ff 100%);
+    color: white;
+    text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
 }
 
 footer a {
     color: white;
-    margin: 0 .75rem;
+    font-weight: 600;
+    opacity: 0.95;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+    transform: translateY(-1px);
 }
 
 footer p {
-    margin-bottom: 1rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+@media (min-width: 768px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.5rem 4rem;
+    }
+
+    .footer-nav {
+        justify-content: flex-end;
+    }
+}
+
+/* Legal Pages */
+.legal-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 30px 80px;
+    line-height: 1.7;
+    background: white;
+}
+
+.legal-page h1 {
+    margin-bottom: 10px;
+}
+
+.legal-page h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.legal-page p {
+    margin-bottom: 15px;
+}
+
+.legal-page ul {
+    margin: 15px 0 20px 25px;
+}
+
+.legal-date {
+    margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
@@ -309,27 +387,37 @@ footer p {
         color: #333;
         font-weight: 600;
     }
+    .nav-links a:hover {
+        color: white;
+        background: none;
+    }
     #hero {
         text-align: center;
         align-items: center;
         position: relative;
+        padding: 0;
+        margin: 0;
+        height: 60vh;
     }   
 
     .hero-image {
         border-radius: 12px;
-        width: 40%;
+        width: 700px;
+        transform: translateY(-180px);
         margin: auto;
-        padding: auto;
+        padding: 0;
     }
     .hero-button {
         position: absolute;
         margin: auto;
-        top: 85%;
+        top: 75%;
         left: 50%;
-        padding: 1.5rem  6rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
-
+    #about {
+        margin: 0;
+        padding: 0;
+    }
     .about-card img {
         border-radius: 12px;
         margin-bottom: 1rem;
