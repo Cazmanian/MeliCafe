@@ -165,6 +165,7 @@
         const header = document.querySelector('header');
         const menuToggle = document.querySelector('.menu-toggle');
         const navBar = document.querySelector('.nav-bar');
+        let lastScrollTop = 0;
 
         if (header && menuToggle && navBar) {
             menuToggle.addEventListener('click', () => {
@@ -193,6 +194,22 @@
                 }
             });
         }
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (window.innerWidth <= 768 && !navBar.classList.contains('open')) {
+                if (currentScroll > lastScrollTop && currentScroll > 20) {
+                    header.classList.add('nav-hidden');
+                } else {
+                    header.classList.remove('nav-hidden');
+                }
+            } else {
+                header.classList.remove('nav-hidden');
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
     </script>
 
 </body>
