@@ -123,26 +123,71 @@ header.nav-hidden {
 /* Hero Section Styles */
 
 #hero {
-    text-align: center;
-    align-items: center;
     position: relative;
-    min-height: 50vh;
+    margin: -4rem -1.5rem 3rem;
+    padding: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 480px;
+    overflow: hidden;
+    background: #054EDB;
 }
 
 .hero-image {
-    transform: translateY(-90px);
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-image.is-active {
+    opacity: 1;
+}
+
+.hero-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.52) 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.hero-social {
+    max-width: 760px;
+    color: #fff;
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-social span {
+    display: block;
+    margin-top: 0.5rem;
 }
 
 .hero-button {
-    position: absolute;
-    margin-top: 2rem;
-    top: 67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: inline-block;
     padding: 1.25rem  2.5rem;
     text-align: center;
     background: #E69233;
@@ -216,6 +261,8 @@ header.nav-hidden {
 /* Catering Section Styles */
 
 #catering {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
     background: #054EDB;
     text-align: center;
     color: white;
@@ -280,7 +327,7 @@ blockquote {
 
 .instagram-widget,
 .elfsight-app-b7eca6a1-9bca-4b85-9a6f-090d046a37f9 {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 2rem auto;
 }
 
@@ -412,38 +459,23 @@ footer p {
 
     }
     #hero {
-        text-align: center;
-        align-items: center;
-        position: relative;
+        margin: -5.5rem -1.5rem 4rem;
         padding: 1.5rem 0 0;
-        margin: 0;
-        min-height: auto;
+    }
+
+    .hero-slideshow {
+        aspect-ratio: 16 / 11;
+        min-height: 0;
     }
 
     .hero-image {
         border-radius: 12px;
-        width: 700px;
-        max-width: 90vw;
-        transform: none;
-        margin: 0 auto 1.5rem;
-        padding: 0;
+        width: 100%;
     }
 
-    .hero-tagline {
-        position: static;
-        transform: none;
-        width: auto;
-        margin: 0 auto 1rem;
-        font-size: 1.1rem;
-    }
-
-    .hero-button {
-        position: relative;
-        display: inline-block;
-        margin: 0 auto;
-        top: -80px;
-        left: auto;
-        transform: none;
+    #hero .hero-button {
+        padding: 1.6rem 4rem;
+        font-size: 1.25rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     #about {

@@ -33,8 +33,16 @@
         <section id="wrapper">
             <section id="hero">
 
-                <img src="assets/Meli Logo HERO.png" alt="drinks with MeliCafe in background" class="hero-image">
-                <a href="https://order.dripos.com/Meli-Cafe" class="hero-button" target="_blank" rel="noopener noreferrer">Order Now</a>
+                <div class="hero-slideshow" aria-label="Meli Cafe highlights">
+                    <img src="assets/hero image.jpeg" alt="Iced coffee and a creamy drink" class="hero-image is-active">
+                    <img src="assets/firework latte.jpeg" alt="Latte being prepared at Meli Cafe" class="hero-image">
+                    <img src="assets/firework loukoumades.jpeg" alt="Loukoumades topped with colorful sprinkles" class="hero-image">
+                    <div class="hero-shade" aria-hidden="true"></div>
+                    <div class="hero-overlay">
+                        <p class="hero-social">Stay Updated by Following Us on Social Media!<span>@melicafesc</span></p>
+                        <a href="https://order.dripos.com/Meli-Cafe" class="hero-button" target="_blank" rel="noopener noreferrer">Order Now</a>
+                    </div>
+                </div>
 
             </section>
             
@@ -209,6 +217,38 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
+
+        const heroSlides = document.querySelectorAll('.hero-image');
+        let activeSlide = 0;
+        let slideshowTimer;
+
+        const showNextSlide = () => {
+            heroSlides[activeSlide].classList.remove('is-active');
+            activeSlide = (activeSlide + 1) % heroSlides.length;
+            heroSlides[activeSlide].classList.add('is-active');
+        };
+
+        const startSlideshow = () => {
+            if (heroSlides.length > 1 && !slideshowTimer) {
+                slideshowTimer = window.setInterval(showNextSlide, 4500);
+            }
+        };
+
+        const stopSlideshow = () => {
+            window.clearInterval(slideshowTimer);
+            slideshowTimer = undefined;
+        };
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            startSlideshow();
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopSlideshow();
+                } else {
+                    startSlideshow();
+                }
+            });
+        }
 
     </script>
 
